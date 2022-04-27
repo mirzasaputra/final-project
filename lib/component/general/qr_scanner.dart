@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:qr_code_scanner/qr_code_scanner.dart' as scanner;
 // import 'package:simple_permissions/simple_permissions.dart';
 
 void main() => runApp(MyApp());
@@ -28,10 +28,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 RaisedButton(
                   child: Text("Scan QR"),
-                  onPressed: () async {
-                    data = await scanner.scan();
-                    setState(() {});
-                  },
+                  onPressed: () {},
                 ),
               ]),
             )));
