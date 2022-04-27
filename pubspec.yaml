@@ -19,6 +19,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  qrscan: ^0.2.17
 
 dev_dependencies:
   flutter_test:
