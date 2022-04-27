@@ -8,6 +8,7 @@ class HistoryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Riwayat Presensi'),
+        backgroundColor: Color(0xFF0D47A1),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:finalproject/pages/account.dart';
 import 'package:flutter/material.dart';
 import 'package:finalproject/pages/home.dart';
 import 'package:finalproject/pages/history.dart';
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _menuList = [
     const HomePage(),
     const HistoryPage(),
-    const HistoryPage(),
+    const AccountPage(),
   ];
 
   @override

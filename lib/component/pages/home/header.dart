@@ -10,7 +10,7 @@ class HomeHeader extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width * 0.6,
       decoration: const BoxDecoration(
-        color: Colors.blue,
+        color: Color(0xFF0D47A1),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,9 +20,9 @@ class HomeHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
-                'SELAMAT DATANG',
+                'Selamat Datang',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -30,7 +30,7 @@ class HomeHeader extends StatelessWidget {
               Text(
                 'Adi Purnomo',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   color: Colors.white,
                 ),
               ),
