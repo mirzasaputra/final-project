@@ -25,8 +25,8 @@ class HomePage extends StatelessWidget {
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       "Jumat, 12 September 2021",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -34,13 +34,18 @@ class HomePage extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
-                    const Text(
+                    Text(
                       "Absensi Masuk",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
                     ),
+                    // RaisedButton(
+                    //     child: Text('QR Code'),
+                    //     onPressed: () {
+                    //       ScannerPage();
+                    //     })
                   ],
                 ),
               ),
