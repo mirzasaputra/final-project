@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:finalproject/component/general/form_input.dart';
 import 'package:finalproject/component/pages/login/title_component.dart';
+import 'package:finalproject/request/login_request.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -36,7 +39,8 @@ class _LoginState extends State<LoginPage> {
                     height: MediaQuery.of(context).size.width - 100,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/login-ilustration.png'),
+                        image:
+                            AssetImage('assets/images/login-ilustration.png'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -52,14 +56,16 @@ class _LoginState extends State<LoginPage> {
                         controller: _usernameController,
                         label: 'Username',
                         placeholder: 'Enter your username',
-                        prefixIcon: const Icon(Icons.person_outline, color: Colors.grey),
+                        prefixIcon: const Icon(Icons.person_outline,
+                            color: Colors.grey),
                       ),
                       const SizedBox(height: 10.0),
                       FormInput(
                         controller: _passwordController,
                         label: 'Password',
                         placeholder: 'Enter your password',
-                        prefixIcon: const Icon(Icons.lock_outline, color: Colors.grey),
+                        prefixIcon:
+                            const Icon(Icons.lock_outline, color: Colors.grey),
                         obscureText: true,
                       ),
                       const SizedBox(height: 10.0),
@@ -87,10 +93,12 @@ class _LoginState extends State<LoginPage> {
                       RaisedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            _checkLogin(context, _usernameController.text, _passwordController.text);
+                            _checkLogin(context, _usernameController.text,
+                                _passwordController.text);
                           }
                         },
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
                         padding: const EdgeInsets.all(0.0),
                         child: Ink(
                           decoration: BoxDecoration(
@@ -100,12 +108,18 @@ class _LoginState extends State<LoginPage> {
                                 Colors.blue.shade900,
                               ],
                             ),
-                            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10.0)),
                           ),
                           child: Container(
-                            constraints: const BoxConstraints(minWidth: 88.0, minHeight: 40.0), // min sizes for Material buttons
+                            constraints: const BoxConstraints(
+                                minWidth: 88.0,
+                                minHeight:
+                                    40.0), // min sizes for Material buttons
                             alignment: Alignment.center,
-                            child: const Text('Sign In', textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
+                            child: const Text('Sign In',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.white)),
                           ),
                         ),
                       ),
@@ -121,21 +135,6 @@ class _LoginState extends State<LoginPage> {
   }
 
   static _checkLogin(BuildContext context, String username, String password) {
-    if (username == 'root' && password == 'root') {
-      Navigator.pop(context);
-      Navigator.pushNamed(context, '/main-page');
-    } else {
-      _showToast(context, "Username or Password doesn't match.");
-    }
-  }
-
-  static _showToast(BuildContext context, String message) {
-    final scaffold = ScaffoldMessenger.of(context);
-    scaffold.showSnackBar(SnackBar(
-        content: Row(children: [
-      const Icon(Icons.close_rounded, color: Colors.red),
-      const SizedBox(width: 5.0),
-      Text(message),
-    ])));
+    loginRequest(context, username, password);
   }
 }

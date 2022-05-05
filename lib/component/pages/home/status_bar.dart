@@ -1,10 +1,15 @@
+import 'package:finalproject/request/status_bar_request.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class StatusBar extends StatelessWidget {
-  const StatusBar({Key? key}) : super(key: key);
+  StatusBar({Key? key}) : super(key: key);
+  late Future<StatusBarRequest> _futureStatusBar;
 
   @override
   Widget build(BuildContext context) {
+    _futureStatusBar = fetchStatusBar();
+
     return Container(
       width: MediaQuery.of(context).size.width * 0.9,
       height: 80,
@@ -13,35 +18,83 @@ class StatusBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: Colors.white,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('12', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-              const Text('Hadir'),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('0', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-              const Text('Ijin'),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('0', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-              const Text('Sakit'),
-            ],
-          ),
-        ],
-      ),
+      child: FutureBuilder<StatusBarRequest>(
+          future: _futureStatusBar,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(snapshot.data!.onTime,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24)),
+                      const Text('Hadir'),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('0',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24)),
+                      Text('Ijin'),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('0',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24)),
+                      Text('Sakit'),
+                    ],
+                  ),
+                ],
+              );
+            } else {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('0',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24)),
+                      Text('Hadir'),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('0',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24)),
+                      Text('Ijin'),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('0',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24)),
+                      Text('Sakit'),
+                    ],
+                  ),
+                ],
+              );
+            }
+          }),
     );
   }
 }

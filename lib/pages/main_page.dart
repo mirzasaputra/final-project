@@ -22,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _menuList = [
     const HomePage(),
     const HistoryPage(),
-    const AccountPage(),
+    AccountPage(),
   ];
 
   @override
@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
         ],
         currentIndex: _activePage,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.blue.shade900,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         onTap: _changeSelectedNavbar,

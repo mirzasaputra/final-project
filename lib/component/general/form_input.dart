@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FormInput extends StatelessWidget {
   TextEditingController controller;
   String label;
@@ -27,7 +28,7 @@ class FormInput extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             color: Colors.grey,
           ),
