@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _menuList = [
     const HomePage(),
-    const HistoryPage(),
+    HistoryPage(),
     AccountPage(),
   ];
 
@@ -32,7 +32,8 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.history_outlined), label: 'Riwayat'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.history_outlined), label: 'Riwayat'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Akun'),
         ],
         currentIndex: _activePage,

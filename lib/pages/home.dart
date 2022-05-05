@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, avoid_print, import_of_legacy_library_into_null_safe
 
 import 'dart:convert';
 
@@ -28,7 +28,6 @@ class _HomeState extends State<HomePage> {
     try {
       qrCodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#f0f0f0', 'Batal', true, ScanMode.QR);
-      // ignore: avoid_print
       print(qrCodeScanRes);
     } on PlatformException {
       qrCodeScanRes = "Failed to get platform version.";
@@ -75,35 +74,38 @@ class _HomeState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return Center(
-            child: Container(
-              padding: const EdgeInsets.all(15.0),
-              height: MediaQuery.of(context).size.width * 0.5,
-              width: MediaQuery.of(context).size.width * 0.9,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15.0),
-                border: Border.all(color: Colors.grey, width: 1.0),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.check_circle_outline,
-                    color: Color(0xFF1B5E20),
-                    size: 50.0,
-                  ),
-                  Text(json['message']),
-                  RaisedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        setState(() {
-                          _futureDataPresence = fetchDataPresence();
-                        });
-                      },
-                      color: Colors.blue.shade900,
-                      textColor: Colors.white,
-                      child: const Text('Oke')),
-                ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(15.0),
+                height: MediaQuery.of(context).size.width * 0.5,
+                width: MediaQuery.of(context).size.width * 0.9,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15.0),
+                  border: Border.all(color: Colors.grey, width: 1.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.check_circle_outline,
+                      color: Color(0xFF1B5E20),
+                      size: 50.0,
+                    ),
+                    Text(json['message']),
+                    RaisedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          setState(() {
+                            _futureDataPresence = fetchDataPresence();
+                          });
+                        },
+                        color: Colors.blue.shade900,
+                        textColor: Colors.white,
+                        child: const Text('Oke')),
+                  ],
+                ),
               ),
             ),
           );
@@ -115,35 +117,38 @@ class _HomeState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return Center(
-            child: Container(
-              padding: const EdgeInsets.all(15.0),
-              height: MediaQuery.of(context).size.width * 0.5,
-              width: MediaQuery.of(context).size.width + 0.9,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15.0),
-                border: Border.all(color: Colors.grey, width: 1.0),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.warning_amber_rounded,
-                    color: Colors.yellow,
-                    size: 50.0,
-                  ),
-                  Text(json['message']),
-                  RaisedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        setState(() {
-                          _futureDataPresence = fetchDataPresence();
-                        });
-                      },
-                      color: Colors.blue.shade900,
-                      textColor: Colors.white,
-                      child: const Text('Oke')),
-                ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(15.0),
+                height: MediaQuery.of(context).size.width * 0.5,
+                width: MediaQuery.of(context).size.width + 0.9,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15.0),
+                  border: Border.all(color: Colors.grey, width: 1.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.warning_amber_rounded,
+                      color: Colors.yellow,
+                      size: 50.0,
+                    ),
+                    Text(json['message']),
+                    RaisedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          setState(() {
+                            _futureDataPresence = fetchDataPresence();
+                          });
+                        },
+                        color: Colors.blue.shade900,
+                        textColor: Colors.white,
+                        child: const Text('Oke')),
+                  ],
+                ),
               ),
             ),
           );

@@ -38,21 +38,21 @@ class StatusBar extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('0',
-                          style: TextStyle(
+                    children: [
+                      Text(snapshot.data!.lateLate,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24)),
-                      Text('Ijin'),
+                      const Text('Terlambat'),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('0',
-                          style: TextStyle(
+                    children: [
+                      Text(snapshot.data!.notPresent,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24)),
-                      Text('Sakit'),
+                      const Text('Tidak Hadir'),
                     ],
                   ),
                 ],
@@ -78,7 +78,7 @@ class StatusBar extends StatelessWidget {
                       Text('0',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24)),
-                      Text('Ijin'),
+                      Text('Terlambat'),
                     ],
                   ),
                   Column(
@@ -88,7 +88,7 @@ class StatusBar extends StatelessWidget {
                       Text('0',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24)),
-                      Text('Sakit'),
+                      Text('TIdak Hadir'),
                     ],
                   ),
                 ],
