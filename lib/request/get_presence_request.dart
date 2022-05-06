@@ -9,7 +9,7 @@ Future<List<DataPresence>> fetchDataPresence() async {
 
   final response = await http.get(
     Uri.parse(
-        'http://192.168.100.10:8000/api/v1/presence/${prefs.getStringList('user')![0]}/data'),
+        'http://e-presensi-api.000webhostapp.com/public/api/v1/presence/${prefs.getStringList('user')![0]}/data'),
     headers: <String, String>{'Content-Type': 'application/json; charset-utf8'},
   );
 

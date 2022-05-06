@@ -28,7 +28,7 @@ Future loginRequest(
   );
 
   final response = await http.post(
-    Uri.parse('http://192.168.100.10:8000/api/v1/login'),
+    Uri.parse('http://e-presensi-api.000webhostapp.com/public/api/v1/login'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=utf-8',
       'X-Requested-With': 'XMLHttpRequest'

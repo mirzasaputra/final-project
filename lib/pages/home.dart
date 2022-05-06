@@ -56,7 +56,8 @@ class _HomeState extends State<HomePage> {
     );
 
     final response = await http.post(
-      Uri.parse('http://192.168.100.10:8000/api/v1/attendance/create'),
+      Uri.parse(
+          'http://e-presensi-api.000webhostapp.com/public/api/v1/attendance/create'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=utf-8',
         'X-Requested-With': 'XMLHttpRequest'
